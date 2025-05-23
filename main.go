@@ -16,7 +16,7 @@ func main() {
 
 func run(first, second []int) {
 	printSlice(getUniqueValues(first))
-	fmt.Print(" ,")
+	fmt.Print(", ")
 	printSlice(getUniqueValues(second))
 	fmt.Println("")
 	printSlice(findIntersections(first, second))
