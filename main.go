@@ -65,9 +65,7 @@ func parseMapToSlice(m map[int]struct{}) []int {
 }
 
 func printSlice(slice []int) {
-	fmt.Print("[")
-	fmt.Print(strings.Join(convertIntToStringSlice(slice), " "))
-	fmt.Print("]")
+	fmt.Printf("[%s]", strings.Join(convertIntToStringSlice(slice), " "))
 }
 
 func convertIntToStringSlice(slice []int) []string {
