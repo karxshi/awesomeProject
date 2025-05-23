@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 func main() {
 	arr := [10]int{5, 1, 2, 5, 4, 2, 5, 1, 1, 2}
@@ -12,9 +16,9 @@ func main() {
 
 func run(first, second []int) {
 	printSlice(getUniqueValues(first))
-	fmt.Print(" ")
+	fmt.Print(" ,")
 	printSlice(getUniqueValues(second))
-	fmt.Print("\n")
+	fmt.Println("")
 	printSlice(findIntersections(first, second))
 	fmt.Println("")
 	printSlice(unionSlicesWithUniqueValues(first, second))
@@ -61,7 +65,15 @@ func parseMapToSlice(m map[int]struct{}) []int {
 }
 
 func printSlice(slice []int) {
-	for _, value := range slice {
-		fmt.Print(value)
+	fmt.Print("[")
+	fmt.Print(strings.Join(convertIntToStringSlice(slice), " "))
+	fmt.Print("]")
+}
+
+func convertIntToStringSlice(slice []int) []string {
+	ret := make([]string, len(slice))
+	for i, value := range slice {
+		ret[i] = strconv.Itoa(value)
 	}
+	return ret
 }
